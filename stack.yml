@@ -1,0 +1,18 @@
+# Use postgres/example user/password credentials
+version: '3.1'
+
+services:
+
+  db:
+    image: postgres:9.3
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: example
+    volumes:
+      - /Users/michaelsimon/Projects/docker/postgresql-cosy/2017-12-24:/docker-entrypoint-initdb.d
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
